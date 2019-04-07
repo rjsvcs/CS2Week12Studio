@@ -9,12 +9,12 @@ public class MakingAGraphActivity {
         graph.addValue("F");
         graph.addValue("G");
 
-        graph.connect("A", "B");
-        graph.connect("A", "D");
-        graph.connect("B", "C");
-        graph.connect("C", "D");
-        graph.connect("E", "G");
-        graph.connect("E", "F");
-        graph.connect("F", "G");
+        graph.connectUndirected("A", "B");
+        graph.connectUndirected("A", "D");
+        graph.connectUndirected("B", "C");
+        graph.connectUndirected("C", "D");
+        graph.connectUndirected("E", "G");
+        graph.connectUndirected("E", "F");
+        graph.connectUndirected("F", "G");
     }
 }
