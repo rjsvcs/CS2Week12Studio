@@ -1,3 +1,5 @@
+package graphs;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,6 +28,15 @@ public class Vertex<T> {
     public Vertex(T value) {
         this.value = value;
         neighbors = new HashSet<>();
+    }
+
+    /**
+     * Returns the value inside this vertex.
+     *
+     * @return The value inside this vertex.
+     */
+    public T getValue() {
+        return value;
     }
 
     /**

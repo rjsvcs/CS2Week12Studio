@@ -1,3 +1,7 @@
+package activities;
+
+import graphs.Graph;
+
 public class MakingAGraphActivity {
     public static void main(String[] args) {
         Graph<String> graph = new Graph<>();
@@ -13,8 +17,20 @@ public class MakingAGraphActivity {
         graph.connectUndirected("A", "D");
         graph.connectUndirected("B", "C");
         graph.connectUndirected("C", "D");
+
         graph.connectUndirected("E", "G");
         graph.connectUndirected("E", "F");
         graph.connectUndirected("F", "G");
+
+        System.out.println("There is a path from A to C: " +
+                graph.breadthFirstSearch("A", "C"));
+        System.out.println("There is a path from A to G: " +
+                graph.breadthFirstSearch("A", "G"));
+
+        System.out.println("Path from A to C: " +
+                graph.breadthFirstPath("A", "C"));
+        System.out.println("Path from A to G: " +
+                graph.breadthFirstPath("A", "G"));
+
     }
 }
