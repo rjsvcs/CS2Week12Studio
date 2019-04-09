@@ -22,6 +22,17 @@ public class Graph<T> {
     }
 
     /**
+     * Returns true if the graph contains the specified value.
+     *
+     * @param value The value of interest.
+     *
+     * @return True if the value is in the graph; false otherwise.
+     */
+    public boolean contains(T value) {
+        return vertices.containsKey(value);
+    }
+
+    /**
      * Adds the specified value to the graph.
      *
      * @param value The value to add to the graph.
