@@ -32,31 +32,36 @@ public class Graph<T> {
     }
 
     /**
-     * Establishes a directed connection between two values in the graph.
+     * Establishes a directed connection between the first value and all of
+     * the other values.
      *
-     * @param value1 The first value.
-     * @param value2 The second value.
+     * @param value The first value.
+     * @param values The values to which the first value should be connected.
      */
-    public void connectDirected(T value1, T value2) {
-        Vertex<T> vertex1 = vertices.get(value1);
-        Vertex<T> vertex2 = vertices.get(value2);
+    public void connectDirected(T value, T ... values) {
+        Vertex<T> vertex = vertices.get(value);
 
-        vertex1.addNeighbor(vertex2);
+        for(T neighborValue : values) {
+            Vertex<T> neighbor = vertices.get(value);
+            vertex.addNeighbor(neighbor);
+        }
     }
 
     /**
-     * Establishes an undirected connection between the two values in the
-     * graph.
+     * Establishes an undirected connection between the first value and all of
+     * the other values.
      *
-     * @param value1 The first value.
-     * @param value2 The second value.
+     * @param value The first value.
+     * @param values The values to which the first value should be connected.
      */
-    public void connectUndirected(T value1, T value2) {
-        Vertex<T> vertex1 = vertices.get(value1);
-        Vertex<T> vertex2 = vertices.get(value2);
+    public void connectUndirected(T value, T ... values) {
+        Vertex<T> vertex = vertices.get(value);
 
-        vertex1.addNeighbor(vertex2);
-        vertex2.addNeighbor(vertex1);
+        for(T neighborValue : values) {
+            Vertex<T> neighbor = vertices.get(neighborValue);
+            vertex.addNeighbor(neighbor);
+            neighbor.addNeighbor(vertex);
+        }
     }
 
     /**
